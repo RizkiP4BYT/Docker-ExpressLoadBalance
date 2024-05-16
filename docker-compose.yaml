@@ -1,0 +1,21 @@
+networks:
+    expressnetwork:
+
+services:
+    express-1:
+        build: ./express-1
+        networks:
+            - expressnetwork
+    express-2:
+        build: ./express-2
+        networks:
+            - expressnetwork
+    nginx:
+        build: ./nginx
+        depends_on:
+            - express-1
+            - express-2
+        networks:
+            - expressnetwork
+        ports:
+            - '80:80'
