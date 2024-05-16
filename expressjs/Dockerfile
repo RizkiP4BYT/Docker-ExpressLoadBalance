@@ -1,5 +1,5 @@
 FROM node:alpine
-WORKDIR /app/express-1
+WORKDIR /app/expressjs
 COPY package*.json ./
 COPY index.js ./
 RUN npm install

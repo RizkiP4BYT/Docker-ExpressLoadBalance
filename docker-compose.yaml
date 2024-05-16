@@ -2,19 +2,17 @@ networks:
     expressnetwork:
 
 services:
-    express-1:
-        build: ./express-1
+    expressjs:
+        build: ./expressjs
         networks:
             - expressnetwork
-    express-2:
-        build: ./express-2
-        networks:
-            - expressnetwork
+        deploy:
+            mode: replicated
+            replicas: 2
     nginx:
         build: ./nginx
         depends_on:
-            - express-1
-            - express-2
+            - expressjs
         networks:
             - expressnetwork
         ports:

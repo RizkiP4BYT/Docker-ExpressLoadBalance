@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 
 app.get('/', function (req, res) {
-    res.send('<h1>Hello, world! From Express-1</h1>')
+    console.log('Successfully send a response to client.')
+    res.send('<h1>Hello, world! From Express</h1>')
 })
 
 app.listen(80, () => {
